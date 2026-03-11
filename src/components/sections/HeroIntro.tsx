@@ -1,20 +1,9 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-/* Custom x positions to optically balance letter spacing.
-   "I" is narrow → tighter gaps around it.
-   "M" is wide → slightly more room.                        */
-const LETTER_DATA = [
-  { char: "L", x: 30 },
-  { char: "U", x: 145 },
-  { char: "M", x: 275 },
-  { char: "I", x: 405 },
-  { char: "È", x: 490 },
-  { char: "R", x: 615 },
-  { char: "E", x: 740 },
-];
-
+const LETTERS = ["L", "U", "M", "I", "È", "R", "E"];
 const TOTAL_DURATION = 4200;
+const LETTER_COUNT = LETTERS.length; // 7
 
 export default function HeroIntro() {
   const ref = useRef<HTMLDivElement>(null);
@@ -41,6 +30,12 @@ export default function HeroIntro() {
     };
   }, []);
 
+  /* Uniform spacing: divide viewBox into equal slots,
+     place each letter at the CENTER of its slot using textAnchor="middle".
+     This guarantees perfectly equal gaps regardless of letter width. */
+  const viewW = 840;
+  const slotW = viewW / LETTER_COUNT; // 120px per slot
+
   return (
     <div
       ref={ref}
@@ -58,15 +53,16 @@ export default function HeroIntro() {
     >
       <div style={{ width: "90vw", maxWidth: "900px" }}>
         <svg
-          viewBox="0 0 840 140"
+          viewBox={`0 0 ${viewW} 140`}
           xmlns="http://www.w3.org/2000/svg"
           style={{ width: "100%", height: "auto", overflow: "visible" }}
         >
-          {LETTER_DATA.map(({ char, x }, i) => (
+          {LETTERS.map((char, i) => (
             <text
               key={i}
-              x={x}
+              x={slotW * i + slotW / 2}
               y="105"
+              textAnchor="middle"
               className="hero-intro__letter"
               style={{
                 animationDelay: `${0.5 + i * 0.15}s, ${2.2 + i * 0.08}s`,
