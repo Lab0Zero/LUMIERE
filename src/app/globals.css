@@ -4,6 +4,7 @@
   --color-bg: #FBFBFB;
   --color-fg: #000000;
   --color-gray: #979797;
+  --color-gray-dark: #686868;
   --color-gray-light: #E5E5E5;
   --color-white: #FFFFFF;
 
@@ -165,6 +166,149 @@ a {
   font-size: 10px;
 }
 
+/* ===== PROJECT DETAIL — GALLERY ===== */
+.project-gallery {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.project-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.project-gallery-img {
+  flex-shrink: 0;
+  width: 440px;
+}
+
+.project-gallery-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===== MOTION PAGE ===== */
+.motion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.motion-item {
+  display: block;
+  cursor: pointer;
+}
+
+.motion-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.motion-thumb img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.motion-item:hover .motion-thumb img {
+  transform: scale(1.02);
+}
+
+.motion-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.motion-item:hover .motion-overlay {
+  opacity: 1;
+}
+
+.motion-play {
+  color: white;
+  font-size: 24px;
+}
+
+.motion-label {
+  padding: 6px 0 16px;
+  font-size: 10px;
+}
+
+/* ===== CULTURE PAGE ===== */
+.culture-viewer {
+  display: flex;
+  justify-content: center;
+  padding: 0 8px;
+  min-height: calc(100vh - 100px);
+  align-items: center;
+}
+
+.culture-img {
+  position: relative;
+  width: 40vw;
+  height: 75vh;
+}
+
+.culture-bar {
+  display: flex;
+  gap: 4px;
+  padding: 16px 8px;
+}
+
+.culture-segment {
+  flex: 1;
+  height: 2px;
+  background: var(--color-gray-light);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.culture-segment.active {
+  background: var(--color-fg);
+}
+
+/* ===== JOURNAL PAGE ===== */
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 8px;
+}
+
+.journal-item {
+  display: block;
+}
+
+.journal-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.journal-img img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.journal-item:hover .journal-img img {
+  transform: scale(1.02);
+}
+
+.journal-meta {
+  padding-top: 8px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
 /* ===== INFO PAGE ===== */
 .info-hero-text {
   font-size: clamp(24px, 3.5vw, 42px);
@@ -274,5 +418,33 @@ a {
     flex-wrap: wrap;
     gap: 4px 16px;
     padding: 12px;
+  }
+
+  /* Motion mobile */
+  .motion-grid {
+    grid-template-columns: 1fr;
+    padding: 0 12px;
+  }
+
+  /* Culture mobile */
+  .culture-img {
+    width: 90vw;
+    height: 60vh;
+  }
+
+  /* Journal mobile */
+  .journal-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0;
+  }
+
+  /* Project detail mobile */
+  .project-gallery {
+    padding-left: 12px;
+  }
+
+  .project-gallery-img {
+    width: 85vw;
   }
 }
