@@ -3,6 +3,8 @@ import { DM_Sans } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import CustomCursor from "@/components/ui/CustomCursor";
+import SmoothScroll from "@/components/ui/SmoothScroll";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -25,8 +27,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className={dmSans.variable}>
       <body className="font-sans">
+        <CustomCursor />
+        <SmoothScroll />
         <Navbar />
-        <main>{children}</main>
+        <main className="page-content">{children}</main>
         <Footer />
         <ScrollProgress />
       </body>

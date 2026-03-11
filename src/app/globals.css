@@ -26,6 +26,7 @@ body {
   line-height: 1.4;
   overflow-x: hidden;
   margin: 0;
+  cursor: none;
 }
 
 * {
@@ -35,11 +36,146 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: none;
+}
+
+button {
+  cursor: none;
 }
 
 ::selection {
   background: var(--color-fg);
   color: var(--color-white);
+}
+
+/* ===== CUSTOM CURSOR — GSP-style ===== */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10001;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+              height 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+              background 0.3s ease;
+}
+
+.cursor-dot.cursor-expand {
+  width: 80px;
+  height: 80px;
+}
+
+.cursor-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-weight: 500;
+  color: black;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s;
+  white-space: nowrap;
+}
+
+.cursor-text-visible {
+  opacity: 1;
+}
+
+/* ===== SCROLL REVEAL ANIMATIONS — GSP timings ===== */
+
+/* Fade Up (text elements) — GSP: transform 1s cubic-bezier(0.2, 0.6, 0.1, 1) 0.15s */
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 1s cubic-bezier(0.2, 0.6, 0.1, 1),
+              opacity 1s linear;
+}
+
+.anim-fade-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Clip Reveal (images) — GSP: clip-path 1.25s cubic-bezier(0.165, 0.84, 0.44, 1) 0.15s */
+.anim-clip-reveal {
+  clip-path: inset(100% 0 0 0);
+  opacity: 0;
+  transition: clip-path 1.25s cubic-bezier(0.165, 0.84, 0.44, 1),
+              opacity 0.6s ease;
+}
+
+.anim-clip-reveal.revealed {
+  clip-path: inset(0% 0 0 0);
+  opacity: 1;
+}
+
+/* Fade In */
+.anim-fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.anim-fade-in.revealed {
+  opacity: 1;
+}
+
+/* ===== LINK HOVER — Slide Up text (GSP keyframes) ===== */
+.link-hover-slide {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.link-hover-inner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.link-hover-slide:hover .link-hover-inner {
+  transform: translateY(-50%);
+}
+
+.link-hover-text {
+  display: block;
+  white-space: nowrap;
+}
+
+.link-hover-clone {
+  color: inherit;
+}
+
+/* ===== FOOTER LINK UNDERLINE DRAW ===== */
+.site-footer a {
+  position: relative;
+}
+
+.site-footer a::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-fg);
+  transition: width 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.site-footer a:hover::after {
+  width: 100%;
 }
 
 /* ===== 12-COLUMN GRID ===== */
@@ -77,14 +213,14 @@ a {
   font-size: 10px;
   font-weight: 500;
   color: white;
-  transition: opacity 0.2s ease;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .nav-root button {
   background: none;
   border: none;
   padding: 0;
-  cursor: pointer;
+  cursor: none;
   font-family: inherit;
   font-size: 10px;
   font-weight: 500;
@@ -109,7 +245,7 @@ a {
   }
 }
 
-/* Nav active/inactive — GSP pattern: active white, inactive gray */
+/* Nav active/inactive — GSP: active white, inactive #686868 */
 .nav-root .nav-active {
   color: white;
   opacity: 1;
@@ -130,6 +266,14 @@ a {
   justify-content: space-between;
 }
 
+/* Nav link — slide up hover */
+.nav-links a,
+.nav-links button {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+}
+
 /* Logo — abbreviation with hover expand like GSP */
 .nav-logo {
   position: relative;
@@ -144,16 +288,22 @@ a {
   position: absolute;
   left: 0;
   top: 0;
+  max-width: 0;
+  overflow: hidden;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: max-width 0.5s cubic-bezier(0.76, 0, 0.24, 1),
+              opacity 0.4s ease;
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .nav-logo:hover .nav-logo-short {
   opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .nav-logo:hover .nav-logo-full {
+  max-width: 200px;
   opacity: 1;
 }
 
@@ -174,7 +324,23 @@ a {
   font-size: 28px;
   font-weight: 500;
   color: var(--color-gray);
-  transition: color 0.2s;
+  transition: color 0.3s ease, transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  transform: translateY(30px);
+  opacity: 0;
+  animation: mobileNavIn 0.5s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+.nav-mobile-overlay a:nth-child(1) { animation-delay: 0.05s; }
+.nav-mobile-overlay a:nth-child(2) { animation-delay: 0.1s; }
+.nav-mobile-overlay a:nth-child(3) { animation-delay: 0.15s; }
+.nav-mobile-overlay a:nth-child(4) { animation-delay: 0.2s; }
+.nav-mobile-overlay a:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes mobileNavIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .nav-mobile-overlay a.nav-mobile-active {
@@ -189,7 +355,7 @@ a {
   gap: 0 8px;
   padding-bottom: 8px;
   overflow: clip;
-  cursor: pointer;
+  cursor: none;
 }
 
 .project-card .p-image {
@@ -203,11 +369,11 @@ a {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .project-card:hover .p-image img {
-  transform: scale(1.02);
+  transform: scale(1.04);
 }
 
 .project-card .p-count {
@@ -239,23 +405,31 @@ a {
 }
 
 .g-item {
-  cursor: pointer;
+  cursor: none;
   overflow: hidden;
 }
 
 .g-item img {
   width: 100%;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .g-item:hover img {
-  transform: scale(1.02);
+  transform: scale(1.04);
 }
 
 .g-item .g-name {
   padding-top: 4px;
   font-size: 10px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.g-item:hover .g-name {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ===== PROJECT DETAIL — GALLERY ===== */
@@ -275,12 +449,18 @@ a {
 .project-gallery-img {
   flex-shrink: 0;
   width: 440px;
+  overflow: hidden;
 }
 
 .project-gallery-img img {
   display: block;
   width: 100%;
   height: auto;
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.project-gallery-img:hover img {
+  transform: scale(1.03);
 }
 
 /* ===== MOTION PAGE ===== */
@@ -293,7 +473,7 @@ a {
 
 .motion-item {
   display: block;
-  cursor: pointer;
+  cursor: none;
 }
 
 .motion-thumb {
@@ -303,11 +483,11 @@ a {
 }
 
 .motion-thumb img {
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .motion-item:hover .motion-thumb img {
-  transform: scale(1.02);
+  transform: scale(1.04);
 }
 
 .motion-overlay {
@@ -318,7 +498,7 @@ a {
   justify-content: center;
   background: rgba(0, 0, 0, 0.15);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .motion-item:hover .motion-overlay {
@@ -333,6 +513,14 @@ a {
 .motion-label {
   padding: 6px 0 16px;
   font-size: 10px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+}
+
+.motion-item:hover .motion-label {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ===== CULTURE PAGE ===== */
@@ -348,6 +536,11 @@ a {
   position: relative;
   width: 40vw;
   height: 75vh;
+  overflow: hidden;
+}
+
+.culture-img img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .culture-bar {
@@ -362,12 +555,29 @@ a {
   background: var(--color-gray-light);
   border: none;
   padding: 0;
-  cursor: pointer;
-  transition: background 0.3s;
+  cursor: none;
+  transition: background 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .culture-segment.active {
   background: var(--color-fg);
+}
+
+/* Active segment progress animation */
+.culture-segment.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-fg);
+  transform-origin: left;
+  animation: segmentProgress 5s linear;
+}
+
+@keyframes segmentProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 /* ===== JOURNAL PAGE ===== */
@@ -377,16 +587,17 @@ a {
   gap: 40px 8px;
 }
 
-.journal-grid .journal-item:nth-child(odd) {
+.journal-grid > *:nth-child(odd) {
   grid-column: 2 / 4;
 }
 
-.journal-grid .journal-item:nth-child(even) {
+.journal-grid > *:nth-child(even) {
   grid-column: 5 / 7;
 }
 
 .journal-item {
   display: block;
+  cursor: none;
 }
 
 .journal-img {
@@ -396,17 +607,25 @@ a {
 }
 
 .journal-img img {
-  transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .journal-item:hover .journal-img img {
-  transform: scale(1.02);
+  transform: scale(1.04);
 }
 
 .journal-meta {
   padding-top: 8px;
   font-size: 10px;
   line-height: 1.5;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+}
+
+.journal-item:hover .journal-meta {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ===== INFO PAGE ===== */
@@ -433,10 +652,27 @@ a {
 .info-link {
   font-size: 10px;
   font-weight: 500;
-  transition: opacity 0.2s;
+  transition: opacity 0.3s ease;
+  position: relative;
 }
+
+.info-link::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.info-link:hover::after {
+  width: 100%;
+}
+
 .info-link:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 /* ===== FOOTER ===== */
@@ -451,8 +687,9 @@ a {
 
 .site-footer a {
   color: var(--color-gray);
-  transition: color 0.2s;
+  transition: color 0.3s ease;
 }
+
 .site-footer a:hover {
   color: var(--color-fg);
 }
@@ -469,10 +706,35 @@ a {
   mix-blend-mode: difference;
 }
 
+/* ===== PAGE TRANSITION ===== */
+.page-content {
+  animation: pageIn 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   body {
     font-size: 11px;
+    cursor: auto;
+  }
+
+  a, button {
+    cursor: auto;
+  }
+
+  .custom-cursor {
+    display: none !important;
   }
 
   .nav-root {
@@ -487,6 +749,7 @@ a {
   .project-card {
     display: block;
     padding: 0 12px 20px;
+    cursor: auto;
   }
 
   .project-card .p-image {
@@ -509,6 +772,11 @@ a {
     padding: 0 12px;
   }
 
+  .g-item .g-name {
+    opacity: 1;
+    transform: none;
+  }
+
   .g-pad {
     padding-left: 12px;
     padding-right: 12px;
@@ -525,10 +793,19 @@ a {
     padding: 12px;
   }
 
+  .site-footer a::after {
+    display: none;
+  }
+
   /* Motion mobile */
   .motion-grid {
     grid-template-columns: 1fr;
     padding: 0 12px;
+  }
+
+  .motion-label {
+    opacity: 1;
+    transform: none;
   }
 
   /* Culture mobile */
@@ -544,13 +821,18 @@ a {
     padding: 0;
   }
 
-  .journal-grid .journal-item:nth-child(odd),
-  .journal-grid .journal-item:nth-child(even) {
+  .journal-grid > *:nth-child(odd),
+  .journal-grid > *:nth-child(even) {
     grid-column: 1 / -1;
   }
 
   .journal-filter-row {
     display: none;
+  }
+
+  .journal-meta {
+    opacity: 1;
+    transform: none;
   }
 
   /* Project detail mobile */
@@ -560,5 +842,23 @@ a {
 
   .project-gallery-img {
     width: 85vw;
+  }
+
+  /* Disable parallax effects on mobile */
+  .anim-fade-up,
+  .anim-clip-reveal,
+  .anim-fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
+
+/* ===== REDUCE MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
