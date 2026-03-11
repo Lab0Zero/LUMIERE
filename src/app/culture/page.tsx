@@ -6,7 +6,7 @@ const cultureImages = [
   "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=1600&q=85",
   "https://images.unsplash.com/photo-1574015974293-817f0ebebb74?w=1600&q=85",
   "https://images.unsplash.com/photo-1562151270-c7d22ceb586a?w=1600&q=85",
-  "https://images.unsplash.com/photo-1562151270-c7d22ceb586a?w=1600&q=85",
+  "https://images.unsplash.com/photo-1553544260-f87e671974ee?w=1600&q=85",
   "https://images.unsplash.com/photo-1575354196644-9de51010f481?w=1600&q=85",
   "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1600&q=85",
   "https://images.unsplash.com/photo-1596993100471-c3905dafa78e?w=1600&q=85",
