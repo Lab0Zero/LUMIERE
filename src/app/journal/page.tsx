@@ -8,25 +8,25 @@ const articles = [
     slug: "behind-the-lens-dior",
     title: "Behind the Lens: Our Dior Haute Couture Campaign",
     date: "February 15, 2026",
-    cover: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=85",
+    cover: "https://images.unsplash.com/photo-1574015974293-817f0ebebb74?w=800&q=85",
   },
   {
     slug: "paris-fashion-week",
     title: "Paris Fashion Week 2026 — A Season of Contrasts",
     date: "January 28, 2026",
-    cover: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=85",
+    cover: "https://images.unsplash.com/photo-1562151270-c7d22ceb586a?w=800&q=85",
   },
   {
     slug: "studio-tour",
     title: "A Look Inside Our Paris Studio",
     date: "December 12, 2025",
-    cover: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=85",
+    cover: "https://images.unsplash.com/photo-1553544260-f87e671974ee?w=800&q=85",
   },
   {
     slug: "location-scouting-morocco",
     title: "Location Scouting: The Colors of Morocco",
     date: "November 5, 2025",
-    cover: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=85",
+    cover: "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=800&q=85",
   },
   {
     slug: "working-with-natural-light",
@@ -38,7 +38,7 @@ const articles = [
     slug: "beauty-editorial-trends",
     title: "Beauty Editorial Trends for 2026",
     date: "September 22, 2025",
-    cover: "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=800&q=85",
+    cover: "https://images.unsplash.com/photo-1580478491436-fd6a937acc9e?w=800&q=85",
   },
 ];
 

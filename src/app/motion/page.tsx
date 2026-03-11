@@ -8,7 +8,7 @@ const motionProjects = [
     slug: "dior-sauvage",
     title: "Dior Sauvage",
     client: "Dior",
-    cover: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1574015974293-817f0ebebb74?w=1200&q=85",
   },
   {
     slug: "chanel-chance",
@@ -20,13 +20,13 @@ const motionProjects = [
     slug: "valentino-rosso",
     title: "Valentino Rosso",
     client: "Valentino",
-    cover: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1562151270-c7d22ceb586a?w=1200&q=85",
   },
   {
     slug: "guerlain-shalimar",
     title: "Guerlain Shalimar",
     client: "Guerlain",
-    cover: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1596993100471-c3905dafa78e?w=1200&q=85",
   },
   {
     slug: "ysl-libre",

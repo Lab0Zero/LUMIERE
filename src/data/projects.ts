@@ -17,14 +17,14 @@ export const projects: Project[] = [
     client: "Dior Haute Couture",
     photographer: "Sofia Mauro",
     images: 12,
-    cover: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=1200&q=85",
     ratio: "2/3",
     category: "fashion",
     gallery: [
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1600&q=85",
-      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1600&q=85",
-      "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1600&q=85",
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1600&q=85",
+      "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=1600&q=85",
+      "https://images.unsplash.com/photo-1553544260-f87e671974ee?w=1600&q=85",
+      "https://images.unsplash.com/photo-1574015974293-817f0ebebb74?w=1600&q=85",
+      "https://images.unsplash.com/photo-1562151270-c7d22ceb586a?w=1600&q=85",
     ],
   },
   {
@@ -38,8 +38,8 @@ export const projects: Project[] = [
     category: "beauty",
     gallery: [
       "https://images.unsplash.com/photo-1550614000-4895a10e1bfd?w=1600&q=85",
-      "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=1600&q=85",
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&q=85",
+      "https://images.unsplash.com/photo-1580478491436-fd6a937acc9e?w=1600&q=85",
+      "https://images.unsplash.com/photo-1596993100471-c3905dafa78e?w=1600&q=85",
     ],
   },
   {
@@ -48,11 +48,11 @@ export const projects: Project[] = [
     client: "Vogue Paris",
     photographer: "Lena Ivanov",
     images: 8,
-    cover: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1553544260-f87e671974ee?w=1200&q=85",
     ratio: "2/3",
     category: "editorial",
     gallery: [
-      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1600&q=85",
+      "https://images.unsplash.com/photo-1553544260-f87e671974ee?w=1600&q=85",
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1600&q=85",
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1600&q=85",
     ],
@@ -63,12 +63,13 @@ export const projects: Project[] = [
     client: "YSL Rouge Pur Couture",
     photographer: "Aiko Tanaka",
     images: 10,
-    cover: "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1580478491436-fd6a937acc9e?w=1200&q=85",
     ratio: "2/3",
     category: "beauty",
     gallery: [
-      "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=1600&q=85",
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&q=85",
+      "https://images.unsplash.com/photo-1580478491436-fd6a937acc9e?w=1600&q=85",
+      "https://images.unsplash.com/photo-1596993100471-c3905dafa78e?w=1600&q=85",
+      "https://images.unsplash.com/photo-1575354196644-9de51010f481?w=1600&q=85",
     ],
   },
   {
@@ -82,7 +83,7 @@ export const projects: Project[] = [
     category: "editorial",
     gallery: [
       "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1600&q=85",
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1600&q=85",
+      "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=1600&q=85",
       "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1600&q=85",
     ],
   },
@@ -92,12 +93,13 @@ export const projects: Project[] = [
     client: "Louis Vuitton",
     photographer: "Thomas Kring",
     images: 7,
-    cover: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1562151270-c7d22ceb586a?w=1200&q=85",
     ratio: "2/3",
     category: "campaign",
     gallery: [
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1600&q=85",
+      "https://images.unsplash.com/photo-1562151270-c7d22ceb586a?w=1600&q=85",
       "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=1600&q=85",
+      "https://images.unsplash.com/photo-1562151270-c7d22ceb586a?w=1600&q=85",
     ],
   },
   {
@@ -112,6 +114,7 @@ export const projects: Project[] = [
     gallery: [
       "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=1600&q=85",
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1600&q=85",
+      "https://images.unsplash.com/photo-1553544260-f87e671974ee?w=1600&q=85",
     ],
   },
   {
@@ -120,11 +123,11 @@ export const projects: Project[] = [
     client: "Guerlain",
     photographer: "Aiko Tanaka",
     images: 5,
-    cover: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1596993100471-c3905dafa78e?w=1200&q=85",
     ratio: "3/4",
     category: "beauty",
     gallery: [
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&q=85",
+      "https://images.unsplash.com/photo-1596993100471-c3905dafa78e?w=1600&q=85",
       "https://images.unsplash.com/photo-1550614000-4895a10e1bfd?w=1600&q=85",
     ],
   },
@@ -139,8 +142,8 @@ export const projects: Project[] = [
     category: "campaign",
     gallery: [
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1600&q=85",
-      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1600&q=85",
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1600&q=85",
+      "https://images.unsplash.com/photo-1553544260-f87e671974ee?w=1600&q=85",
+      "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=1600&q=85",
     ],
   },
   {
@@ -154,7 +157,7 @@ export const projects: Project[] = [
     category: "fashion",
     gallery: [
       "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1600&q=85",
-      "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=1600&q=85",
+      "https://images.unsplash.com/photo-1580478491436-fd6a937acc9e?w=1600&q=85",
     ],
   },
   {
@@ -183,6 +186,7 @@ export const projects: Project[] = [
     gallery: [
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1600&q=85",
       "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1600&q=85",
+      "https://images.unsplash.com/photo-1604284195847-88dc4b5a9faa?w=1600&q=85",
     ],
   },
   {
@@ -196,6 +200,7 @@ export const projects: Project[] = [
     category: "campaign",
     gallery: [
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1600&q=85",
+      "https://images.unsplash.com/photo-1621036570283-e270d46d3901?w=1600&q=85",
     ],
   },
   {
@@ -204,12 +209,12 @@ export const projects: Project[] = [
     client: "Prada Luna Rossa",
     photographer: "Thomas Kring",
     images: 7,
-    cover: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1574015974293-817f0ebebb74?w=1200&q=85",
     ratio: "2/3",
     category: "fashion",
     gallery: [
-      "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1600&q=85",
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1600&q=85",
+      "https://images.unsplash.com/photo-1574015974293-817f0ebebb74?w=1600&q=85",
+      "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=1600&q=85",
     ],
   },
   {
@@ -224,6 +229,7 @@ export const projects: Project[] = [
     gallery: [
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1600&q=85",
       "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1600&q=85",
+      "https://images.unsplash.com/photo-1595882669314-919b3d51f2c7?w=1600&q=85",
     ],
   },
   {
