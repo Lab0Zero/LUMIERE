@@ -33,11 +33,11 @@ export const projects: Project[] = [
     client: "Chanel N°5",
     photographer: "Marc Dubois",
     images: 6,
-    cover: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1024&q=80",
+    cover: "https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=1024&q=80",
     ratio: "1/1",
     category: "beauty",
     gallery: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1400&q=80",
+      "https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=1400&q=80",
       "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1400&q=80",
       "https://images.unsplash.com/photo-1503236823255-94609f598e71?w=1400&q=80",
     ],
