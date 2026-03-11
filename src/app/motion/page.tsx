@@ -14,13 +14,13 @@ const motionProjects = [
     slug: "chanel-chance",
     title: "Chanel Chance",
     client: "Chanel",
-    cover: "https://images.unsplash.com/photo-1661768065574-c2a463343342?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1663691219171-93494f63b5c9?w=1200&q=85",
   },
   {
     slug: "valentino-rosso",
     title: "Valentino Rosso",
     client: "Valentino",
-    cover: "https://images.unsplash.com/photo-1508829298730-713792c22189?w=1200&q=85",
+    cover: "https://images.pexels.com/photos/4006513/pexels-photo-4006513.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     slug: "guerlain-shalimar",
@@ -38,7 +38,7 @@ const motionProjects = [
     slug: "hermes-terre",
     title: "Hermès Terre",
     client: "Hermès",
-    cover: "https://images.unsplash.com/photo-1739001414891-461488e9e91e?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1693645325828-62cd35c8da8f?w=1200&q=85",
   },
 ];
 

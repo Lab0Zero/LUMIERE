@@ -4,15 +4,15 @@ import Image from "next/image";
 
 const cultureImages = [
   "https://images.unsplash.com/photo-1638337935003-e17cf483ca8d?w=1600&q=85",
-  "https://images.unsplash.com/photo-1741514377294-28f60e26c0b3?w=1600&q=85",
-  "https://images.unsplash.com/photo-1661768065574-c2a463343342?w=1600&q=85",
-  "https://images.unsplash.com/photo-1508829298730-713792c22189?w=1600&q=85",
+  "https://images.unsplash.com/photo-1663691219171-93494f63b5c9?w=1600&q=85",
+  "https://images.unsplash.com/photo-1759090889296-1b82083f981d?w=1600&q=85",
+  "https://images.unsplash.com/photo-1767570278483-328dfeccef89?w=1600&q=85",
   "https://images.unsplash.com/photo-1730320915228-f70e3c43aa7d?w=1600&q=85",
-  "https://images.unsplash.com/photo-1644269444230-c6d1f2722e10?w=1600&q=85",
-  "https://images.unsplash.com/photo-1596662678434-186ae19d2879?w=1600&q=85",
-  "https://images.unsplash.com/photo-1738597344284-f04aa5198719?w=1600&q=85",
   "https://images.unsplash.com/photo-1652281846249-fd131a6cca36?w=1600&q=85",
-  "https://images.unsplash.com/photo-1616065787407-d5c44921f68a?w=1600&q=85",
+  "https://images.unsplash.com/photo-1590131222139-91ba5992e4ed?w=1600&q=85",
+  "https://images.unsplash.com/photo-1763906473317-c9193c8ef05a?w=1600&q=85",
+  "https://images.unsplash.com/photo-1693645325828-62cd35c8da8f?w=1600&q=85",
+  "https://images.unsplash.com/photo-1633701394188-c11a1e6a4e26?w=1600&q=85",
 ];
 
 export default function CulturePage() {

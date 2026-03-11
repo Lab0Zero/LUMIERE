@@ -14,19 +14,19 @@ const articles = [
     slug: "paris-fashion-week",
     title: "Paris Fashion Week 2026 — A Season of Contrasts",
     date: "January 28, 2026",
-    cover: "https://images.unsplash.com/photo-1741514377585-0aadbd45824c?w=800&q=85",
+    cover: "https://images.unsplash.com/photo-1759090888952-c7935687a6ce?w=800&q=85",
   },
   {
     slug: "studio-tour",
     title: "A Look Inside Our Paris Studio",
     date: "December 12, 2025",
-    cover: "https://images.unsplash.com/photo-1673964918041-01ef3a431d24?w=800&q=85",
+    cover: "https://images.unsplash.com/photo-1673945102051-475c402cf069?w=800&q=85",
   },
   {
     slug: "location-scouting-morocco",
     title: "Location Scouting: The Colors of Morocco",
     date: "November 5, 2025",
-    cover: "https://images.unsplash.com/photo-1616065787407-d5c44921f68a?w=800&q=85",
+    cover: "https://images.unsplash.com/photo-1633701394188-c11a1e6a4e26?w=800&q=85",
   },
   {
     slug: "working-with-natural-light",
@@ -38,7 +38,7 @@ const articles = [
     slug: "beauty-editorial-trends",
     title: "Beauty Editorial Trends for 2026",
     date: "September 22, 2025",
-    cover: "https://images.unsplash.com/photo-1678582965361-ee91f6c9583a?w=800&q=85",
+    cover: "https://images.unsplash.com/photo-1663691222849-92b8eb09fda5?w=800&q=85",
   },
 ];
 
