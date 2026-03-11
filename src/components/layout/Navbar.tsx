@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Stills", href: "/" },
@@ -12,6 +13,11 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isStills = pathname === "/" || pathname.startsWith("/stills");
+  const activeHref = isStills ? "/" : pathname;
+  const showViewToggle = isStills;
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -27,26 +33,38 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop nav */}
-      <nav className="nav-root hidden md:grid">
-        <Link href="/" style={{ gridColumn: "1 / 3" }}>
-          LP
+      <nav className="nav-root nav-desktop">
+        <Link href="/" className="nav-logo" style={{ gridColumn: "1 / 3" }}>
+          <span className="nav-logo-short">LP</span>
+          <span className="nav-logo-full">Lumière Productions</span>
         </Link>
+
         <div style={{ gridColumn: "3 / 5", display: "flex", gap: "8px" }}>
-          <ViewToggle />
+          {showViewToggle ? <ViewToggle /> : (
+            pathname === "/motion" && (
+              <Link href="/motion" className="nav-active">Index</Link>
+            )
+          )}
         </div>
-        <div style={{ gridColumn: "7 / 13", display: "flex", justifyContent: "space-between" }}>
+
+        <div className="nav-links" style={{ gridColumn: "7 / 13" }}>
           {navLinks.map((l) => (
-            <Link key={l.href} href={l.href}>{l.label}</Link>
+            <Link
+              key={l.href}
+              href={l.href}
+              className={activeHref === l.href ? "nav-active" : "nav-inactive"}
+            >
+              {l.label}
+            </Link>
           ))}
         </div>
       </nav>
 
       {/* Mobile nav */}
-      <nav
-        className="nav-root grid md:hidden"
-        style={{ gridTemplateColumns: "1fr auto" }}
-      >
-        <Link href="/">LP</Link>
+      <nav className="nav-root nav-mobile">
+        <Link href="/" className="nav-logo">
+          <span className="nav-logo-short">LP</span>
+        </Link>
         <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
           {mobileOpen ? "Close" : "Menu"}
         </button>
@@ -54,25 +72,13 @@ export default function Navbar() {
 
       {/* Mobile overlay */}
       {mobileOpen && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 997,
-            background: "var(--color-bg)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            padding: "0 12px",
-            gap: "24px",
-          }}
-        >
+        <div className="nav-mobile-overlay">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setMobileOpen(false)}
-              style={{ fontSize: "24px", fontWeight: 500 }}
+              className={activeHref === l.href ? "nav-mobile-active" : ""}
             >
               {l.label}
             </Link>
@@ -95,13 +101,13 @@ function ViewToggle() {
     <>
       <button
         onClick={() => toggle("list")}
-        style={{ opacity: view === "list" ? 1 : 0.4 }}
+        className={view === "list" ? "nav-active" : "nav-inactive"}
       >
         List
       </button>
       <button
         onClick={() => toggle("grid")}
-        style={{ opacity: view === "grid" ? 1 : 0.4 }}
+        className={view === "grid" ? "nav-active" : "nav-inactive"}
       >
         Grid
       </button>
