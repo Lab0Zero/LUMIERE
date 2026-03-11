@@ -43,16 +43,16 @@ const articles = [
 export default function JournalPage() {
   return (
     <div className="g-pad" style={{ paddingTop: 58 }}>
-      {/* Filter */}
-      <div className="grid-12" style={{ marginBottom: 24 }}>
-        <div style={{ gridColumn: "7 / 9" }}>
+      {/* Filter row */}
+      <div className="grid-12 journal-filter-row" style={{ marginBottom: 24 }}>
+        <div style={{ gridColumn: "8 / 10" }}>
           <span style={{ fontSize: 10, fontWeight: 500, cursor: "pointer" }}>
             &#9660; All
           </span>
         </div>
       </div>
 
-      {/* Articles grid — 2 columns like GSP */}
+      {/* Articles — uses journal-grid which switches from 12-col to 1-col on mobile */}
       <div className="journal-grid">
         {articles.map((a) => (
           <Link key={a.slug} href="#" className="journal-item">
@@ -61,7 +61,7 @@ export default function JournalPage() {
                 src={a.cover}
                 alt={a.title}
                 fill
-                sizes="(max-width: 768px) 100vw, 40vw"
+                sizes="(max-width: 768px) 100vw, 16vw"
                 style={{ objectFit: "cover" }}
               />
             </div>

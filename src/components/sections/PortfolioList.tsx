@@ -56,16 +56,16 @@ export default function PortfolioList() {
           </div>
 
           <div className="p-details">
-            <div style={{ gridColumn: "1 / 3" }}>
+            <div style={{ gridColumn: "1 / 2" }}>
               <span className="p-label">Client</span>
             </div>
-            <div style={{ gridColumn: "3 / 5" }}>
+            <div style={{ gridColumn: "2 / 3" }}>
               <span>{p.client}</span>
             </div>
-            <div style={{ gridColumn: "5 / 6" }}>
+            <div style={{ gridColumn: "3 / 4" }}>
               <span className="p-label">Photographer</span>
             </div>
-            <div style={{ gridColumn: "6 / 7" }}>
+            <div style={{ gridColumn: "4 / 6" }}>
               <span>{p.photographer}</span>
             </div>
           </div>

@@ -47,7 +47,7 @@ export default function Navbar() {
           )}
         </div>
 
-        <div className="nav-links" style={{ gridColumn: "7 / 13" }}>
+        <div className="nav-links" style={{ gridColumn: "8 / -1" }}>
           {navLinks.map((l) => (
             <Link
               key={l.href}

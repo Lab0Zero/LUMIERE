@@ -11,7 +11,7 @@ export default function InformationPage() {
             with expert creative insight.
           </p>
         </div>
-        <div style={{ gridColumn: "7 / 9" }}>
+        <div style={{ gridColumn: "8 / 10" }}>
           <div
             style={{
               aspectRatio: "3/4",
@@ -24,7 +24,7 @@ export default function InformationPage() {
             <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 10 }}>Culture</span>
           </div>
         </div>
-        <div style={{ gridColumn: "9 / 11", display: "flex", alignItems: "flex-end" }}>
+        <div style={{ gridColumn: "10 / 12", display: "flex", alignItems: "flex-end" }}>
           <a href="/culture" className="info-link" style={{ color: "var(--color-gray)" }}>
             (View Culture)
           </a>
@@ -56,7 +56,7 @@ export default function InformationPage() {
         </div>
 
         {/* Contact + Services */}
-        <div style={{ gridColumn: "7 / 9" }}>
+        <div style={{ gridColumn: "8 / 10" }}>
           <p className="info-title">Contact</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
             <a href="mailto:contact@lumiere-productions.com" className="info-link">
@@ -84,7 +84,7 @@ export default function InformationPage() {
         </div>
 
         {/* Selected Clients */}
-        <div style={{ gridColumn: "10 / 13" }}>
+        <div style={{ gridColumn: "11 / 13" }}>
           <p className="info-title">Selected Clients</p>
           <div className="info-body" style={{ display: "flex", flexDirection: "column", gap: 2 }}>
             {[
