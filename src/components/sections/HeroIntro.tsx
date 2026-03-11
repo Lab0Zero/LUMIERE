@@ -3,7 +3,11 @@ import { useEffect, useRef } from "react";
 
 const LETTERS = ["L", "U", "M", "I", "È", "R", "E"];
 const TOTAL_DURATION = 4200;
-const LETTER_COUNT = LETTERS.length; // 7
+const LETTER_COUNT = LETTERS.length;
+
+/*  Module-level flag — survives SPA navigations (Next.js Link / back),
+    but resets on real page loads (first visit, F5 refresh, new tab).  */
+let hasPlayedThisPageLoad = false;
 
 export default function HeroIntro() {
   const ref = useRef<HTMLDivElement>(null);
@@ -12,6 +16,13 @@ export default function HeroIntro() {
     const el = ref.current;
     if (!el) return;
 
+    // Skip if already played during this page session (SPA back navigation)
+    if (hasPlayedThisPageLoad) {
+      el.style.display = "none";
+      return;
+    }
+
+    hasPlayedThisPageLoad = true;
     document.body.style.overflow = "hidden";
 
     const fadeTimer = setTimeout(() => {
@@ -30,11 +41,8 @@ export default function HeroIntro() {
     };
   }, []);
 
-  /* Uniform spacing: divide viewBox into equal slots,
-     place each letter at the CENTER of its slot using textAnchor="middle".
-     This guarantees perfectly equal gaps regardless of letter width. */
   const viewW = 840;
-  const slotW = viewW / LETTER_COUNT; // 120px per slot
+  const slotW = viewW / LETTER_COUNT;
 
   return (
     <div
