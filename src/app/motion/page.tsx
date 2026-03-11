@@ -8,37 +8,37 @@ const motionProjects = [
     slug: "dior-sauvage",
     title: "Dior Sauvage",
     client: "Dior",
-    cover: "https://images.unsplash.com/photo-1574015974293-817f0ebebb74?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1638337935003-e17cf483ca8d?w=1200&q=85",
   },
   {
     slug: "chanel-chance",
     title: "Chanel Chance",
     client: "Chanel",
-    cover: "https://images.unsplash.com/photo-1550614000-4895a10e1bfd?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1661768065574-c2a463343342?w=1200&q=85",
   },
   {
     slug: "valentino-rosso",
     title: "Valentino Rosso",
     client: "Valentino",
-    cover: "https://images.unsplash.com/photo-1562151270-c7d22ceb586a?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1508829298730-713792c22189?w=1200&q=85",
   },
   {
     slug: "guerlain-shalimar",
     title: "Guerlain Shalimar",
     client: "Guerlain",
-    cover: "https://images.unsplash.com/photo-1596993100471-c3905dafa78e?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1730320915228-f70e3c43aa7d?w=1200&q=85",
   },
   {
     slug: "ysl-libre",
     title: "YSL Libre",
     client: "YSL",
-    cover: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1767570278483-328dfeccef89?w=1200&q=85",
   },
   {
     slug: "hermes-terre",
     title: "Hermès Terre",
     client: "Hermès",
-    cover: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1200&q=85",
+    cover: "https://images.unsplash.com/photo-1739001414891-461488e9e91e?w=1200&q=85",
   },
 ];
 

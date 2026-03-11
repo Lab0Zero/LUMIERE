@@ -3,16 +3,16 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 const cultureImages = [
-  "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=1600&q=85",
-  "https://images.unsplash.com/photo-1574015974293-817f0ebebb74?w=1600&q=85",
-  "https://images.unsplash.com/photo-1562151270-c7d22ceb586a?w=1600&q=85",
-  "https://images.unsplash.com/photo-1553544260-f87e671974ee?w=1600&q=85",
-  "https://images.unsplash.com/photo-1575354196644-9de51010f481?w=1600&q=85",
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1600&q=85",
-  "https://images.unsplash.com/photo-1596993100471-c3905dafa78e?w=1600&q=85",
-  "https://images.unsplash.com/photo-1580478491436-fd6a937acc9e?w=1600&q=85",
-  "https://images.unsplash.com/photo-1621036570283-e270d46d3901?w=1600&q=85",
-  "https://images.unsplash.com/photo-1595882669314-919b3d51f2c7?w=1600&q=85",
+  "https://images.unsplash.com/photo-1638337935003-e17cf483ca8d?w=1600&q=85",
+  "https://images.unsplash.com/photo-1741514377294-28f60e26c0b3?w=1600&q=85",
+  "https://images.unsplash.com/photo-1661768065574-c2a463343342?w=1600&q=85",
+  "https://images.unsplash.com/photo-1508829298730-713792c22189?w=1600&q=85",
+  "https://images.unsplash.com/photo-1730320915228-f70e3c43aa7d?w=1600&q=85",
+  "https://images.unsplash.com/photo-1644269444230-c6d1f2722e10?w=1600&q=85",
+  "https://images.unsplash.com/photo-1596662678434-186ae19d2879?w=1600&q=85",
+  "https://images.unsplash.com/photo-1738597344284-f04aa5198719?w=1600&q=85",
+  "https://images.unsplash.com/photo-1652281846249-fd131a6cca36?w=1600&q=85",
+  "https://images.unsplash.com/photo-1616065787407-d5c44921f68a?w=1600&q=85",
 ];
 
 export default function CulturePage() {
