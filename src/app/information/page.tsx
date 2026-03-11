@@ -102,10 +102,10 @@ export default function InformationPage() {
             <p className="info-title">Selected Clients</p>
             <div className="info-body" style={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {[
-                "Dior", "Chanel", "Louis Vuitton", "Hermès", "Valentino",
-                "YSL Beauty", "Guerlain", "Tom Ford", "Cartier", "Prada",
-                "Givenchy", "Bulgari", "La Perla", "Vogue Paris",
-                "Harper's Bazaar", "Elle France", "L'Officiel", "Numéro",
+                "Maison Aurore", "Noire Beauté", "Atelier Ciel", "Maison Sellier", "Flamme Rouge",
+                "Rouge Absolu", "Essence Dorée", "Noir Velours", "Maison Clarté", "Ombre Pourpre",
+                "Haute Éclipse", "Lumière Noire", "Voile de Soie", "Revue Éphémère",
+                "Gazette Moderne", "Elle Rebelle", "L'Officiel", "Numéro",
                 "Marie Claire", "Vanity Fair", "W Magazine",
               ].map((c) => (
                 <span key={c}>{c}</span>

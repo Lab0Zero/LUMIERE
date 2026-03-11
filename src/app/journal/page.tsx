@@ -5,8 +5,8 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const articles = [
   {
-    slug: "behind-the-lens-dior",
-    title: "Behind the Lens: Our Dior Haute Couture Campaign",
+    slug: "behind-the-lens-aurore",
+    title: "Behind the Lens: Our Maison Aurore Campaign",
     date: "February 15, 2026",
     cover: "https://images.unsplash.com/photo-1650464595868-fd12e3047d33?w=800&q=85",
   },

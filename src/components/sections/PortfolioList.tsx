@@ -44,10 +44,6 @@ export default function PortfolioList() {
     <div className="g-pad" style={{ paddingTop: 58 }}>
       {projects.map((p) => (
         <Link key={p.slug} href={`/stills/${p.slug}`} className="project-card">
-          <ScrollReveal type="fadeUp" delay={0.1} className="p-count">
-            <span>{p.images} Images</span>
-          </ScrollReveal>
-
           <div className="p-image">
             <ScrollReveal
               type="clipUp"
