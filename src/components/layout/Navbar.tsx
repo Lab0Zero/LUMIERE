@@ -1,25 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const navLinks = [
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Services", href: "#services" },
-  { label: "À propos", href: "#about" },
-  { label: "Journal", href: "#journal" },
-  { label: "Contact", href: "#contact" },
+  { label: "Stills", href: "/" },
+  { label: "Motion", href: "/motion" },
+  { label: "Culture", href: "/culture" },
+  { label: "Information", href: "/information" },
+  { label: "Journal", href: "/journal" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -27,125 +19,92 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 1024) setMobileOpen(false); };
+    const onResize = () => { if (window.innerWidth >= 769) setMobileOpen(false); };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-white/90 backdrop-blur-xl"
-            : "bg-transparent"
-        }`}
-        style={{ borderBottom: scrolled ? "1px solid rgba(0,0,0,0.06)" : "none" }}
-      >
-        <div className="container-site flex h-16 md:h-20 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="relative z-50 flex items-center gap-0">
-            <span
-              className={`text-sm md:text-base font-medium tracking-[0.2em] uppercase transition-colors duration-300 ${
-                mobileOpen ? "text-white" : "text-foreground"
-              }`}
-            >
-              Lumière
-            </span>
-          </Link>
-
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="text-[13px] font-normal tracking-[0.05em] text-foreground-secondary
-                           hover:text-foreground transition-colors duration-300"
-              >
-                {l.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center">
-            <Link
-              href="#contact"
-              className="text-[13px] font-normal tracking-[0.05em] text-foreground-secondary
-                         hover:text-foreground transition-colors duration-300"
-            >
-              Collaborer
-            </Link>
-          </div>
-
-          {/* Hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="relative z-50 flex lg:hidden items-center justify-center w-11 h-11"
-            aria-label="Menu"
-            aria-expanded={mobileOpen}
-          >
-            <div className="flex flex-col justify-center items-center w-6 h-6">
-              <span
-                className={`block h-[1px] w-6 rounded-full transition-all duration-300 ${
-                  mobileOpen ? "rotate-45 translate-y-[4px] bg-white" : "bg-foreground"
-                }`}
-              />
-              <span
-                className={`block h-[1px] w-6 rounded-full transition-all duration-300 mt-[7px] ${
-                  mobileOpen ? "-rotate-45 -translate-y-[4px] bg-white" : "bg-foreground"
-                }`}
-              />
-            </div>
-          </button>
+      {/* Desktop nav */}
+      <nav className="nav-root hidden md:grid">
+        <Link href="/" style={{ gridColumn: "1 / 3" }}>
+          LP
+        </Link>
+        <div style={{ gridColumn: "3 / 5", display: "flex", gap: "8px" }}>
+          <ViewToggle />
         </div>
-      </header>
+        <div style={{ gridColumn: "7 / 13", display: "flex", justifyContent: "space-between" }}>
+          {navLinks.map((l) => (
+            <Link key={l.href} href={l.href}>{l.label}</Link>
+          ))}
+        </div>
+      </nav>
 
-      {/* Mobile menu fullscreen — dark overlay */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 bg-[#0A0A0A] lg:hidden"
-          >
-            <nav className="flex flex-col items-start justify-center h-full px-8 gap-6">
-              {navLinks.map((l, i) => (
-                <motion.div
-                  key={l.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.15 + i * 0.06, duration: 0.4 }}
-                >
-                  <Link
-                    href={l.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-3xl sm:text-4xl font-light text-white tracking-tight"
-                  >
-                    {l.label}
-                  </Link>
-                </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                className="mt-8 pt-8 border-t border-white/10 w-full"
-              >
-                <p className="text-sm text-white/40 tracking-wide">
-                  contact@lumiere-agency.com
-                </p>
-                <p className="text-sm text-white/40 tracking-wide mt-1">
-                  +33 1 42 86 00 00
-                </p>
-              </motion.div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile nav */}
+      <nav
+        className="nav-root grid md:hidden"
+        style={{ gridTemplateColumns: "1fr auto" }}
+      >
+        <Link href="/">LP</Link>
+        <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
+          {mobileOpen ? "Close" : "Menu"}
+        </button>
+      </nav>
+
+      {/* Mobile overlay */}
+      {mobileOpen && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 997,
+            background: "var(--color-bg)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            padding: "0 12px",
+            gap: "24px",
+          }}
+        >
+          {navLinks.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              onClick={() => setMobileOpen(false)}
+              style={{ fontSize: "24px", fontWeight: 500 }}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </>
+  );
+}
+
+function ViewToggle() {
+  const [view, setView] = useState<"list" | "grid">("list");
+
+  const toggle = (mode: "list" | "grid") => {
+    setView(mode);
+    window.dispatchEvent(new CustomEvent("viewchange", { detail: mode }));
+  };
+
+  return (
+    <>
+      <button
+        onClick={() => toggle("list")}
+        style={{ opacity: view === "list" ? 1 : 0.4 }}
+      >
+        List
+      </button>
+      <button
+        onClick={() => toggle("grid")}
+        style={{ opacity: view === "grid" ? 1 : 0.4 }}
+      >
+        Grid
+      </button>
     </>
   );
 }
