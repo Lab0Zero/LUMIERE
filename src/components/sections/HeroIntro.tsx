@@ -11,14 +11,7 @@ export default function HeroIntro() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Only play once per session
-    if (sessionStorage.getItem("lumiere-intro-played")) {
-      setVisible(false);
-      setHasPlayed(true);
-      return;
-    }
-
-    // Lock body scroll
+    // Lock body scroll during animation
     document.body.style.overflow = "hidden";
 
     // Start fade out after animation completes
@@ -31,7 +24,6 @@ export default function HeroIntro() {
       setVisible(false);
       setHasPlayed(true);
       document.body.style.overflow = "";
-      sessionStorage.setItem("lumiere-intro-played", "true");
     }, TOTAL_DURATION + 800);
 
     return () => {
